@@ -1,0 +1,71 @@
+.header {
+  height: 95vh;
+  max-width: 100%;
+  background-image: linear-gradient(rgba($color-white, 0.6), rgba($color-white, 0.6)),
+    url("../img/stones-g93c526508_1920.jpg");
+  // url("../img/pebble-g422b4f62b_1920.jpg");
+
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+
+  @include respond(tab-land) {
+    height: 98vh;
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  }
+
+  @include respond(tab-port) {
+    height: 98vh;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  @include respond(phone) {
+    height: 98vh;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  &__logo-box {
+    padding-top: 2%;
+  }
+
+  &__logo {
+    width: 28%;
+    display: block;
+    margin: 0 auto;
+
+    @include respond(tab-land) {
+      width: 30%;
+    }
+
+    @include respond(tab-port) {
+      width: 32%;
+    }
+
+    @include respond(phone) {
+      width: 43%;
+    }
+  }
+
+  &__text-box {
+    color: $color-grey-dark-3;
+    text-align: center;
+    padding-top: 5rem;
+
+    @include respond(tab-land) {
+      padding-top: 10rem;
+    }
+
+    @include respond(tab-port) {
+      padding-top: 12rem;
+    }
+
+    @include respond(phone) {
+      padding-top: 10rem;
+    }
+
+    @include respond(phone) {
+      padding-top: 10rem;
+    }
+  }
+}

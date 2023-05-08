@@ -1,0 +1,133 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.5s 0.2s;
+  }
+
+  &-sec {
+    display: flex;
+    align-items: flex-start;
+
+    @include respond(phone) {
+      flex-direction: column;
+      column-gap: 0;
+      row-gap: $gutter-horizontal-small;
+      align-items: center;
+    }
+  }
+
+  &-left {
+    width: 33.333333%;
+    display: table-cell;
+    vertical-align: middle;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+
+  &-right {
+    width: 66.6666667%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0rem 5rem;
+
+    @include respond(phone) {
+      width: 100%;
+      padding: 0rem 2rem;
+    }
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+
+    @include respond(phone) {
+      width: 40%;
+    }
+    // @include respond(phone-s) {
+    //   width: 30%;
+    // }
+  }
+
+  &-text {
+    font-size: calc($default-font-size * 0.9);
+    margin-bottom: 4rem;
+    column-count: 2;
+    column-gap: 4rem; //1em = 14px;
+    column-rule: 1px solid $color-grey-light-2;
+
+    @include respond(phone) {
+      column-gap: 2rem;
+      font-size: calc($default-font-size * 0.8);
+    }
+  }
+
+  //Open states
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &-content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &-close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      line-height: 1;
+
+      @include respond(phone) {
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 2.5rem;
+      }
+
+      @include respond(phone-s) {
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2rem;
+      }
+    }
+
+    &:hover {
+      color: $color-light-green;
+    }
+  }
+}
